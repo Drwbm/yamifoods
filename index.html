@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Restaurant — Food & Delivery</title>
+  <meta name="description" content="Order delicious meals online for pickup or delivery.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#home"><span>🍽️</span> YOUR RESTAURANT</a>
+  <nav>
+    <a href="#menu">Menu</a><a href="#specials">Specials</a><a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="cart-btn" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-overlay">
+    <p class="eyebrow">FRESH • LOCAL • DELICIOUS</p>
+    <h1>Good food.<br><span>Great moments.</span></h1>
+    <p>Choose your meal from our food orbit, add it to your cart and order online.</p>
+    <a class="primary" href="#menu">Explore Menu</a>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="section-heading">
+    <p class="eyebrow">OUR MENU</p>
+    <h2>Choose your food</h2>
+    <p>Tap a small dish around the orbit. The selected meal appears in the centre with its actual price.</p>
+  </div>
+
+  <div class="categories" id="categories"></div>
+
+  <div class="food-wheel">
+    <div class="orbit" id="foodOrbit"></div>
+    <div class="center-card">
+      <div class="center-image-wrap">
+        <img id="bigDish" src="assets/food-inspiration.jpg" alt="Selected meal">
+        <span class="popular-badge" id="dishBadge">POPULAR</span>
+      </div>
+      <div class="center-info">
+        <p class="category-label" id="dishCategory">Meal</p>
+        <h3 id="dishName">Loading...</h3>
+        <p id="dishDescription">Select a meal from the orbit.</p>
+        <div class="price-row">
+          <strong id="dishPrice">ZMW 0.00</strong>
+          <div class="quantity">
+            <button onclick="changeSelectedQty(-1)">−</button>
+            <span id="selectedQty">1</span>
+            <button onclick="changeSelectedQty(1)">+</button>
+          </div>
+        </div>
+        <button class="primary full" onclick="addSelectedToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="specials" class="specials">
+  <div class="section-heading">
+    <p class="eyebrow">TODAY'S CHOICES</p>
+    <h2>Special meals</h2>
+  </div>
+  <div class="special-grid" id="specialGrid"></div>
+</section>
+
+<section class="features">
+  <div><span>🚚</span><h3>Delivery</h3><p>Choose delivery or pickup at checkout.</p></div>
+  <div><span>💳</span><h3>Online Payment</h3><p>Payment methods can be connected securely.</p></div>
+  <div><span>📦</span><h3>Order Tracking</h3><p>Follow your order from received to delivered.</p></div>
+  <div><span>👨‍🍳</span><h3>Freshly Prepared</h3><p>Meals are prepared after your order.</p></div>
+</section>
+
+<section id="about" class="about">
+  <div>
+    <p class="eyebrow">ABOUT US</p>
+    <h2>Food made for sharing.</h2>
+    <p>Replace this text later with your restaurant story, location, opening hours and brand message.</p>
+  </div>
+  <img src="assets/food-inspiration.jpg" alt="Restaurant food inspiration">
+</section>
+
+<section id="contact" class="contact">
+  <p class="eyebrow">CONTACT</p>
+  <h2>Ready to order?</h2>
+  <p>Your phone number, WhatsApp, email, address and opening hours can be added here later.</p>
+  <div class="contact-placeholders">
+    <span>📞 Phone — Add later</span><span>💬 WhatsApp — Add later</span>
+    <span>📧 Email — Add later</span><span>📍 Address — Add later</span>
+  </div>
+</section>
+</main>
+
+<!-- Cart drawer -->
+<div class="modal-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="drawer-head"><h2>Your Cart</h2><button onclick="closeCart()">✕</button></div>
+  <div id="cartItems"></div>
+  <div class="cart-summary">
+    <div><span>Subtotal</span><strong id="subtotal">ZMW 0.00</strong></div>
+    <div><span>Delivery</span><strong id="deliveryFee">ZMW 0.00</strong></div>
+    <div class="total"><span>Total</span><strong id="cartTotal">ZMW 0.00</strong></div>
+    <button class="primary full" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- Checkout -->
+<div class="checkout-modal" id="checkoutModal">
+  <div class="checkout-box">
+    <button class="close-modal" onclick="closeCheckout()">✕</button>
+    <p class="eyebrow">CHECKOUT</p>
+    <h2>Complete your order</h2>
+    <form id="checkoutForm" onsubmit="placeOrder(event)">
+      <div class="form-grid">
+        <label>Full name<input id="customerName" required></label>
+        <label>Phone number<input id="customerPhone" required type="tel"></label>
+      </div>
+      <label>Order type
+        <select id="orderType" onchange="toggleAddress()">
+          <option value="delivery">Delivery</option><option value="pickup">Pickup</option>
+        </select>
+      </label>
+      <label id="addressField">Delivery address<textarea id="customerAddress" rows="2"></textarea></label>
+      <label>Payment method
+        <select id="paymentMethod">
+          <option value="momo">Mobile Money</option>
+          <option value="card">Visa / Mastercard</option>
+          <option value="cash">Cash on delivery / pickup</option>
+        </select>
+      </label>
+      <div class="checkout-total"><span>Total to pay</span><strong id="checkoutTotal">ZMW 0.00</strong></div>
+      <button class="primary full" type="submit">Confirm Order</button>
+      <small>Online payment credentials will be connected to your chosen payment provider later.</small>
+    </form>
+  </div>
+</div>
+
+<!-- Order tracking -->
+<div class="checkout-modal" id="trackingModal">
+  <div class="checkout-box">
+    <button class="close-modal" onclick="closeTracking()">✕</button>
+    <p class="eyebrow">ORDER TRACKING</p>
+    <h2 id="trackingOrder">Order received</h2>
+    <div class="tracking">
+      <div class="track active"><b>✓</b><span>Received</span></div>
+      <div class="track"><b>2</b><span>Preparing</span></div>
+      <div class="track"><b>3</b><span>Ready</span></div>
+      <div class="track"><b>4</b><span>Delivered</span></div>
+    </div>
+    <button class="primary full" onclick="closeTracking()">Continue browsing</button>
+  </div>
+</div>
+
+<footer>
+  <strong>YOUR RESTAURANT</strong>
+  <p>Fresh food • Easy ordering • Online payment</p>
+  <p>© <span id="year"></span> Your Restaurant</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

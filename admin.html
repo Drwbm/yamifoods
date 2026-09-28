@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restaurant Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{background:#f4f5f0}.admin{max-width:1250px;margin:auto;padding:30px 5%}
+.admin-top{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.admin-nav{display:flex;gap:8px;flex-wrap:wrap;margin:25px 0}.admin-nav button{border:0;border-radius:10px;padding:11px 15px;background:white;font-weight:800}.admin-nav button.active{background:#1d4b2a;color:#fff}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{background:#fff;padding:20px;border-radius:18px;box-shadow:0 8px 25px #0001}.stat b{display:block;font-size:1.7rem;color:#1d4b2a}
+.panel{background:#fff;border-radius:18px;padding:22px;margin-top:20px;box-shadow:0 8px 25px #0001}.panel h2{margin-top:0}
+.admin-table{width:100%;border-collapse:collapse}.admin-table th,.admin-table td{padding:12px;border-bottom:1px solid #eee;text-align:left}.admin-table button{border:0;border-radius:8px;padding:7px 10px;margin:2px}
+.form-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.panel input,.panel select,.panel textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:9px;margin:5px 0 12px}
+.notice{background:#fff8df;border-left:4px solid #d9b85c;padding:14px;border-radius:8px;margin:15px 0}
+@media(max-width:800px){.stats{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.admin-table{font-size:.82rem}}
+</style>
+</head>
+<body>
+<div class="admin">
+<div class="admin-top"><div><p class="eyebrow">PRIVATE AREA</p><h1>Restaurant Admin</h1></div><a class="primary" href="index.html">View Website</a></div>
+<div class="notice"><b>Demo dashboard:</b> this version stores data in this browser. Connect it to a secure backend/database before using it for live customer orders or payments.</div>
+<div class="admin-nav">
+<button class="active" onclick="showPanel('dashboard',this)">Dashboard</button>
+<button onclick="showPanel('orders',this)">Orders</button>
+<button onclick="showPanel('menuAdmin',this)">Menu</button>
+<button onclick="showPanel('sales',this)">Sales</button>
+<button onclick="showPanel('settings',this)">Settings</button>
+</div>
+
+<section id="dashboard" class="panel">
+<h2>Overview</h2>
+<div class="stats">
+<div class="stat">Orders<b id="statOrders">0</b></div>
+<div class="stat">Sales<b id="statSales">ZMW 0.00</b></div>
+<div class="stat">Menu items<b id="statMeals">0</b></div>
+<div class="stat">Pending<b id="statPending">0</b></div>
+</div>
+</section>
+
+<section id="orders" class="panel" hidden>
+<h2>Incoming Orders</h2>
+<div id="ordersList"></div>
+</section>
+
+<section id="menuAdmin" class="panel" hidden>
+<h2>Menu Management</h2>
+<form onsubmit="addMeal(event)">
+<div class="form-row">
+<label>Meal name<input id="mealName" required></label>
+<label>Category<input id="mealCategory" required></label>
+<label>Price (ZMW)<input id="mealPrice" type="number" min="0" step=".01" required></label>
+<label>Image URL / path<input id="mealImage" value="assets/food-inspiration.jpg"></label>
+</div>
+<label>Description<textarea id="mealDescription" rows="2"></textarea></label>
+<button class="primary" type="submit">Add Meal</button>
+</form>
+<hr>
+<div id="menuList"></div>
+</section>
+
+<section id="sales" class="panel" hidden>
+<h2>Sales Summary</h2><div id="salesSummary"></div>
+</section>
+
+<section id="settings" class="panel" hidden>
+<h2>Restaurant Settings</h2>
+<label>Restaurant name<input id="restaurantName" placeholder="Your Restaurant"></label>
+<label>Delivery fee<input id="restaurantDelivery" type="number" value="25"></label>
+<label>Minimum order<input id="minimumOrder" type="number" value="0"></label>
+<button class="primary" onclick="saveSettings()">Save Settings</button>
+</section>
+</div>
+<script>
+const get=(k,d)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d));
+const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+let meals=get("adminMeals",null), orders=get("restaurantOrders",[]);
+if(!meals){meals=[]}
+function money(n){return "ZMW "+Number(n||0).toFixed(2)}
+function showPanel(id,btn){document.querySelectorAll(".panel").forEach(x=>x.hidden=true);document.getElementById(id).hidden=false;document.querySelectorAll(".admin-nav button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");refresh()}
+function refresh(){
+document.getElementById("statOrders").textContent=orders.length;
+document.getElementById("statSales").textContent=money(orders.reduce((s,o)=>s+Number(o.total||0),0));
+document.getElementById("statMeals").textContent=meals.length;
+document.getElementById("statPending").textContent=orders.filter(o=>!["Delivered","Cancelled"].includes(o.status)).length;
+document.getElementById("ordersList").innerHTML=orders.length?orders.map((o,i)=>`<div class="panel"><b>${o.orderNo}</b> — ${o.customerName||"Customer"} — ${money(o.total)}<p>${(o.items||[]).map(x=>x.name+" × "+x.qty).join(", ")}</p><p>Status: <b>${o.status}</b></p><button onclick="statusOrder(${i},'Preparing')">Preparing</button><button onclick="statusOrder(${i},'Ready')">Ready</button><button onclick="statusOrder(${i},'Out for delivery')">Out for delivery</button><button onclick="statusOrder(${i},'Delivered')">Delivered</button></div>`).join(""):"<p>No orders yet.</p>";
+document.getElementById("menuList").innerHTML=meals.length?`<table class="admin-table"><tr><th>Meal</th><th>Category</th><th>Price</th><th>Action</th></tr>${meals.map((m,i)=>`<tr><td>${m.name}</td><td>${m.category}</td><td>${money(m.price)}</td><td><button onclick="deleteMeal(${i})">Delete</button></td></tr>`).join("")}</table>`:"<p>Add meals here. Your main website can then be connected to this menu store.</p>";
+let total=orders.reduce((s,o)=>s+Number(o.total||0),0);document.getElementById("salesSummary").innerHTML=`<h3>Total revenue: ${money(total)}</h3><p>Total orders: ${orders.length}</p>`;
+}
+function addMeal(e){e.preventDefault();meals.push({id:Date.now(),name:mealName.value,category:mealCategory.value,price:Number(mealPrice.value),image:mealImage.value,description:mealDescription.value});set("adminMeals",meals);e.target.reset();mealImage.value="assets/food-inspiration.jpg";refresh()}
+function deleteMeal(i){if(confirm("Delete this meal?")){meals.splice(i,1);set("adminMeals",meals);refresh()}}
+function statusOrder(i,status){orders[i].status=status;set("restaurantOrders",orders);refresh()}
+function saveSettings(){set("restaurantSettings",{name:restaurantName.value,delivery:Number(restaurantDelivery.value),minimum:Number(minimumOrder.value)});alert("Settings saved in this browser.")}
+refresh();
+</script>
+</body>
+</html>
