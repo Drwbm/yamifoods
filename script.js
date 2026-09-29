@@ -22,7 +22,7 @@ const dishes = [
   {id:20,name:"Family Chicken Platter",category:"Chicken",price:190,image:"assets/816020079.jpg",description:"Large chicken platter designed for sharing.",popular:true},
   {id:21,name:"Family Beef Platter",category:"Beef",price:210,image:"assets/Mixed-Meats-e1729018716704.jpg",description:"Large beef platter for family and friends.",popular:true},
   {id:22,name:"Rice & Beans",category:"Vegetarian",price:48,image:"assets/Cajun-Red-Beans-and-Rice-1200-2563.jpg",description:"Seasoned rice with beans and fresh vegetables."},
-  {id:23,name:"Loaded Chips",category:"Sides",price:40,image:"assets/food-inspiration.jpg",description:"Crispy chips with toppings and house sauce."},
+  {id:23,name:"Loaded Chips",category:"Sides",price:40,image:"assets/Loaded-Fries-Take-Two-Tapas-1.jpg",description:"Crispy chips with toppings and house sauce."},
   {id:24,name:"Fruit Platter",category:"Desserts",price:45,image:"assets/food-inspiration.jpg",description:"Fresh seasonal fruit selection."},
   {id:25,name:"Ice Cream",category:"Desserts",price:35,image:"assets/food-inspiration.jpg",description:"Creamy ice cream dessert."}
 ];
