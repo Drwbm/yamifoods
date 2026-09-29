@@ -11,7 +11,7 @@ const dishes = [
   {id:9,name:"Beef Burger",category:"Burgers",price:60,image:"assets/food-inspiration.jpg",description:"Juicy beef burger with fresh vegetables and house sauce."},
   {id:10,name:"Fried Chicken",category:"Chicken",price:68,image:"assets/Extra-Crispy-Fried-Chicken-7.jpg",description:"Crispy fried chicken served with your choice of side."},
   {id:11,name:"Grilled Beef",category:"Beef",price:80,image:"assets/200906-r-xl-grilled-porterhouse-steak-with-summer-vegetables-6425274599694ad1994dd44a070d5258.jpg",description:"Seasoned grilled beef with fresh vegetables."},
-  {id:12,name:"Fish & Chips",category:"Fish",price:72,image:"assets/food-inspiration.jpg",description:"Crispy fish with golden chips and fresh salad."},
+  {id:12,name:"Fish & Chips",category:"Fish",price:72,image:"assets/file_00000000861c8243a2861ca4b78983f0.png",description:"Crispy fish with golden chips and fresh salad."},
   {id:13,name:"Nshima & Fish",category:"Nshima",price:75,image:"assets/f3d3f70454e4a27bbf194177d6b28167.jpg",description:"Traditional nshima with grilled fish and local relish."},
   {id:14,name:"Nshima & Beef",category:"Nshima",price:78,image:"assets/file_00000000eeb881f4b5f233363010fe5a.png",description:"Traditional nshima with tender beef and relish."},
   {id:15,name:"Chicken & Rice",category:"Chicken",price:70,image:"assets/food-inspiration.jpg",description:"Seasoned rice with grilled chicken and vegetables."},
