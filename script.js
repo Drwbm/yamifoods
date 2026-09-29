@@ -8,7 +8,7 @@ const dishes = [
   {id:7,name:"Grilled Chicken",category:"Chicken",price:75,image:"assets/grilled-tandoori-chicken-12.jpg",description:"Flame-grilled chicken with a choice of side."},
   {id:8,name:"Fresh Juice",category:"Drinks",price:25,image:"assets/fresh-juice.jpg",description:"Freshly prepared seasonal fruit juice."}
 ,
-  {id:9,name:"Beef Burger",category:"Burgers",price:60,image:"assets/food-inspiration.jpg",description:"Juicy beef burger with fresh vegetables and house sauce."},
+  {id:9,name:"Beef Burger",category:"Burgers",price:60,image:"assets/Cook-Burgers-on-the-Stove-FT24_277152_EC_0904_1-vert-social (1).jpg",description:"Juicy beef burger with fresh vegetables and house sauce."},
   {id:10,name:"Fried Chicken",category:"Chicken",price:68,image:"assets/Extra-Crispy-Fried-Chicken-7.jpg",description:"Crispy fried chicken served with your choice of side."},
   {id:11,name:"Grilled Beef",category:"Beef",price:80,image:"assets/200906-r-xl-grilled-porterhouse-steak-with-summer-vegetables-6425274599694ad1994dd44a070d5258.jpg",description:"Seasoned grilled beef with fresh vegetables."},
   {id:12,name:"Fish & Chips",category:"Fish",price:72,image:"assets/file_00000000861c8243a2861ca4b78983f0.png",description:"Crispy fish with golden chips and fresh salad."},
