@@ -5,7 +5,7 @@ const dishes = [
   {id:4,name:"Chicken Burger",category:"Burgers",price:55,image:"assets/chicken-burgers-index-667b185b5f528.jpg",description:"Juicy chicken burger with fresh vegetables and house sauce."},
   {id:5,name:"Family Fish Platter",category:"Fish",price:180,image:"assets/file_000000008504820a8f257ec6b4bc5ac8.png",description:"A generous platter for sharing with family or friends.",popular:true},
   {id:6,name:"Avocado Rice Bowl",category:"Vegetarian",price:50,image:"assets/avocado-and-salmon-rice-bowl-119734-1.jpg",description:"Seasoned rice, avocado, vegetables and fresh herbs."},
-  {id:7,name:"Grilled Chicken",category:"Chicken",price:75,image:"assets/food-inspiration.jpg",description:"Flame-grilled chicken with a choice of side."},
+  {id:7,name:"Grilled Chicken",category:"Chicken",price:75,image:"assets/grilled-tandoori-chicken-12.jpg",description:"Flame-grilled chicken with a choice of side."},
   {id:8,name:"Fresh Juice",category:"Drinks",price:25,image:"assets/food-inspiration.jpg",description:"Freshly prepared seasonal fruit juice."}
 ,
   {id:9,name:"Beef Burger",category:"Burgers",price:60,image:"assets/food-inspiration.jpg",description:"Juicy beef burger with fresh vegetables and house sauce."},
