@@ -32,3 +32,70 @@
   .food-item{width:58px;height:58px}
   .orbit-label{display:none}
 }
+/* =========================
+   FEATURE CARDS
+   ========================= */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 50px 6%;
+  text-align: center;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.14);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.feature-card h3 {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.feature-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 35px 4%;
+  }
+
+  .feature-card img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 500px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card img {
+    height: 200px;
+  }
+}
