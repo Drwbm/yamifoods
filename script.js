@@ -9,7 +9,7 @@ const dishes = [
   {id:8,name:"Fresh Juice",category:"Drinks",price:25,image:"assets/food-inspiration.jpg",description:"Freshly prepared seasonal fruit juice."}
 ,
   {id:9,name:"Beef Burger",category:"Burgers",price:60,image:"assets/food-inspiration.jpg",description:"Juicy beef burger with fresh vegetables and house sauce."},
-  {id:10,name:"Fried Chicken",category:"Chicken",price:68,image:"assets/food-inspiration.jpg",description:"Crispy fried chicken served with your choice of side."},
+  {id:10,name:"Fried Chicken",category:"Chicken",price:68,image:"assets/Extra-Crispy-Fried-Chicken-7.jpg",description:"Crispy fried chicken served with your choice of side."},
   {id:11,name:"Grilled Beef",category:"Beef",price:80,image:"assets/200906-r-xl-grilled-porterhouse-steak-with-summer-vegetables-6425274599694ad1994dd44a070d5258.jpg",description:"Seasoned grilled beef with fresh vegetables."},
   {id:12,name:"Fish & Chips",category:"Fish",price:72,image:"assets/food-inspiration.jpg",description:"Crispy fish with golden chips and fresh salad."},
   {id:13,name:"Nshima & Fish",category:"Nshima",price:75,image:"assets/food-inspiration.jpg",description:"Traditional nshima with grilled fish and local relish."},
