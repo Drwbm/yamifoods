@@ -18,7 +18,7 @@ const dishes = [
   {id:16,name:"Vegetable Platter",category:"Vegetarian",price:55,image:"assets/file_00000000a2f481f4944bdcf22101f875.png",description:"Fresh seasonal vegetables with rice and avocado."},
   {id:17,name:"Avocado Salad",category:"Vegetarian",price:45,image:"assets/food-inspiration.jpg",description:"Fresh avocado salad with vegetables and herbs."},
   {id:18,name:"Mango Juice",category:"Drinks",price:28,image:"assets/food-inspiration.jpg",description:"Refreshing mango juice prepared fresh."},
-  {id:19,name:"Passion Juice",category:"Drinks",price:28,image:"assets/food-inspiration.jpg",description:"Fresh passion-fruit juice."},
+  {id:19,name:"Passion Juice",category:"Drinks",price:28,image:"assets/passion-fruit-juice-2 (1).jpg",description:"Fresh passion-fruit juice."},
   {id:20,name:"Family Chicken Platter",category:"Chicken",price:190,image:"assets/816020079.jpg",description:"Large chicken platter designed for sharing.",popular:true},
   {id:21,name:"Family Beef Platter",category:"Beef",price:210,image:"assets/Mixed-Meats-e1729018716704.jpg",description:"Large beef platter for family and friends.",popular:true},
   {id:22,name:"Rice & Beans",category:"Vegetarian",price:48,image:"assets/Cajun-Red-Beans-and-Rice-1200-2563.jpg",description:"Seasoned rice with beans and fresh vegetables."},
