@@ -15,7 +15,7 @@ const dishes = [
   {id:13,name:"Nshima & Fish",category:"Nshima",price:75,image:"assets/f3d3f70454e4a27bbf194177d6b28167.jpg",description:"Traditional nshima with grilled fish and local relish."},
   {id:14,name:"Nshima & Beef",category:"Nshima",price:78,image:"assets/file_00000000eeb881f4b5f233363010fe5a.png",description:"Traditional nshima with tender beef and relish."},
   {id:15,name:"Chicken & Rice",category:"Chicken",price:70,image:"assets/food-inspiration.jpg",description:"Seasoned rice with grilled chicken and vegetables."},
-  {id:16,name:"Vegetable Platter",category:"Vegetarian",price:55,image:"assets/food-inspiration.jpg",description:"Fresh seasonal vegetables with rice and avocado."},
+  {id:16,name:"Vegetable Platter",category:"Vegetarian",price:55,image:"assets/file_00000000a2f481f4944bdcf22101f875.png",description:"Fresh seasonal vegetables with rice and avocado."},
   {id:17,name:"Avocado Salad",category:"Vegetarian",price:45,image:"assets/food-inspiration.jpg",description:"Fresh avocado salad with vegetables and herbs."},
   {id:18,name:"Mango Juice",category:"Drinks",price:28,image:"assets/food-inspiration.jpg",description:"Refreshing mango juice prepared fresh."},
   {id:19,name:"Passion Juice",category:"Drinks",price:28,image:"assets/food-inspiration.jpg",description:"Fresh passion-fruit juice."},
