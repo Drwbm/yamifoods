@@ -2,7 +2,7 @@ const dishes = [
   {id:1,name:"Grilled Fish & Rice",category:"Fish",price:85,image:"assets/file_00000000969c8210afd7252b0475707c.png",description:"Grilled fish served with seasoned rice, fresh vegetables and avocado.",popular:true},
   {id:2,name:"Nshima & Chicken",category:"Nshima",price:65,image:"assets/file_000000006b1c820a80b952ad00bbcb8f.png",description:"Traditional nshima served with tender chicken and a tasty vegetable relish.",popular:true},
   {id:3,name:"Beef & Nshima",category:"Beef",price:70,image:"assets/file_0000000003c881f4be9b5f1772cff4ac.png",description:"Tender beef with nshima and a rich local relish."},
-  {id:4,name:"Chicken Burger",category:"Burgers",price:55,image:"assets/food-inspiration.jpg",description:"Juicy chicken burger with fresh vegetables and house sauce."},
+  {id:4,name:"Chicken Burger",category:"Burgers",price:55,image:"assets/chicken-burgers-index-667b185b5f528.jpg",description:"Juicy chicken burger with fresh vegetables and house sauce."},
   {id:5,name:"Family Fish Platter",category:"Fish",price:180,image:"assets/food-inspiration.jpg",description:"A generous platter for sharing with family or friends.",popular:true},
   {id:6,name:"Avocado Rice Bowl",category:"Vegetarian",price:50,image:"assets/food-inspiration.jpg",description:"Seasoned rice, avocado, vegetables and fresh herbs."},
   {id:7,name:"Grilled Chicken",category:"Chicken",price:75,image:"assets/food-inspiration.jpg",description:"Flame-grilled chicken with a choice of side."},
