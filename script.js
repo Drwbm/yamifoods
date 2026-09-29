@@ -19,7 +19,7 @@ const dishes = [
   {id:17,name:"Avocado Salad",category:"Vegetarian",price:45,image:"assets/food-inspiration.jpg",description:"Fresh avocado salad with vegetables and herbs."},
   {id:18,name:"Mango Juice",category:"Drinks",price:28,image:"assets/food-inspiration.jpg",description:"Refreshing mango juice prepared fresh."},
   {id:19,name:"Passion Juice",category:"Drinks",price:28,image:"assets/food-inspiration.jpg",description:"Fresh passion-fruit juice."},
-  {id:20,name:"Family Chicken Platter",category:"Chicken",price:190,image:"assets/food-inspiration.jpg",description:"Large chicken platter designed for sharing.",popular:true},
+  {id:20,name:"Family Chicken Platter",category:"Chicken",price:190,image:"assets/816020079.jpg",description:"Large chicken platter designed for sharing.",popular:true},
   {id:21,name:"Family Beef Platter",category:"Beef",price:210,image:"assets/food-inspiration.jpg",description:"Large beef platter for family and friends.",popular:true},
   {id:22,name:"Rice & Beans",category:"Vegetarian",price:48,image:"assets/food-inspiration.jpg",description:"Seasoned rice with beans and fresh vegetables."},
   {id:23,name:"Loaded Chips",category:"Sides",price:40,image:"assets/food-inspiration.jpg",description:"Crispy chips with toppings and house sauce."},
